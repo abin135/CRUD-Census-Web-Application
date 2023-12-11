@@ -9,12 +9,14 @@ import { CensusesListComponent } from './components/censuses-list/censuses-list.
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AddCensusComponent } from './components/add-census/add-census.component';
+import { UpdateCensusComponent } from './components/update-census/update-census.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CensusesListComponent,
-    AddCensusComponent
+    AddCensusComponent,
+    UpdateCensusComponent
   ],
   imports: [
     BrowserModule,

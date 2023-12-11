@@ -23,10 +23,34 @@ export class CrudService {
     return this.httpClient.get(`${this.REST_API}`);
   }
 
+  //Get one census
+  GetCensus(id: any) {
+    console.log('getting census', id);
+    return this.httpClient.get(`${this.REST_API}/${id}`)
+  }
+
   // Add
   AddCensus(data: Census): Observable<any> {
     let API_URL = `${this.REST_API}/add-census`;
     return this.httpClient.post(API_URL, data)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  // Delete
+  DeleteCensus(id: any): Observable<any> {
+    let API_URL = `${this.REST_API}/delete-census/${id}`;
+    return this.httpClient.delete(API_URL, { headers: this.httpHeaders })
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  // Update
+  UpdateCensus(id: any, data: Census): Observable<any> {
+    let API_URL =`${this.REST_API}/update-census/${id}`;
+    return this.httpClient.put(API_URL, data)
       .pipe(
         catchError(this.handleError)
       );

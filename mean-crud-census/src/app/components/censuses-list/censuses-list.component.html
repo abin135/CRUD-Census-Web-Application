@@ -13,16 +13,25 @@
             <th scope="col">Number of People in Household</th>
             <th scope="col">Household State</th>
             <th scope="col">Household City</th>
+            <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let census of Censuses; let i = index">
             <th scope="row">{{census._id}}</th>
-            <td>{{census.year}}</td>
-            <td>{{census.takerName}}</td>
-            <td>{{census.numPeople}}</td>
-            <td>{{census.householdState}}</td>
-            <td>{{census.householdCity}}</td>
+            <td class="censusCell">{{census.year}}</td>
+            <td class="censusCell">{{census.takerName}}</td>
+            <td class="censusCell">{{census.numPeople}}</td>
+            <td class="censusCell">{{census.householdState}}</td>
+            <td class="censusCell">{{census.householdCity}}</td>
+            <td class="censusCell">
+              <button class="btn btn-sm btn-primary"
+                (click)="onDelete(census._id)">Delete
+              </button>
+              <button class="btn btn-sm btn-primary"
+                (click)="onUpdate(census._id)">Update
+              </button>
+            </td>
           </tr>
         </tbody>
       </table>
